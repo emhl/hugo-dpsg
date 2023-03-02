@@ -151,6 +151,9 @@ theme = "hugo-dpsg"
 [[Params.widgets.social.custom]]
   title = "My Home Page"
   url = "http://example.com"
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"] # Generate home page in HTML, RSS and JSON formats (for local search)
 ```
 
 A good idea is not to copy all these settings without understanding how it

@@ -1,0 +1,35 @@
+{{ define "main" }} 
+<!-- 
+  This is a modified version of the search.html template from eddiewebb's gist
+  Copyright 2022 Edward A. Webbinaro
+  Licensed under the MIT License
+  https://gist.github.com/eddiewebb/735feb48f50f0ddd65ae5606a1cb41ae 
+-->
+
+{{ $jquery := resources.Get "js/jquery.js" | minify | fingerprint -}}
+{{ $fuse := resources.Get "js/fuse.js"  | minify | fingerprint -}}
+{{ $mark := resources.Get "js/jquery.mark.js" | minify | fingerprint -}}
+{{ $search := resources.Get "js/search.js" | minify | fingerprint -}}
+
+<script src="{{ $jquery.Permalink }}" {{ printf "integrity=%q" $jquery.Data.Integrity | safeHTMLAttr }}></script>
+<script src="{{ $fuse.Permalink }}" {{ printf "integrity=%q" $fuse.Data.Integrity | safeHTMLAttr }}></script>
+<script src="{{ $mark.Permalink }}" {{ printf "integrity=%q" $mark.Data.Integrity | safeHTMLAttr }}></script>
+<script src="{{ $search.Permalink }}" {{ printf "integrity=%q" $search.Data.Integrity | safeHTMLAttr }}></script>
+
+<section class="resume-section p-3 p-lg-5 d-flex flex-column">
+  <div class="my-auto" >
+    <div id="search-results">
+     <h1>Suchergebnisse</h1>
+    </div>
+  </div>
+</section>
+<!-- this template is sucked in by search.js and appended to the search-results div above. So editing here will adjust style -->
+<script id="search-result-template" type="text/x-js-template">
+    <div id="summary-${key}">
+      <h2><a href="${link}">${title}</a></h2>
+      <p>${snippet}</p>
+      ${ isset tags }<p>Tags: ${tags}</p>${ end }
+      ${ isset categories }<p>Categories: ${categories}</p>${ end }
+    </div>
+</script>
+{{ end }}
