@@ -212,6 +212,19 @@ For more information about front matter variables read [Hugo Front
 Matter](https://gohugo.io/content-management/front-matter) from Hugo official
 documentation.
 
+#### Redirects
+
+If you want to redirect a page to another URL, you can use the `redirect` layout
+
+```yaml
+---
+layout: "redirect"
+title: "Old Page"
+redirect: "https://example.com/new-page"
+---
+```
+
+
 ### Sidebar
 
 **Hugo DPSG** comes with a configurable sidebar that can be on the left, on the right, or

@@ -1,0 +1,23 @@
+{{/*  code from https://github.com/cljoly/gohugo-shorturl */}}
+<html>
+{{- $to := .Params.redirect -}}
+{{ if eq $to nil -}}
+   {{ errorf "redirect variable must be defined for %q" .Page -}}
+{{ end -}}
+{{ if .Params.internal }}
+  {{ $to = ref . $to }}
+{{ end }}
+    <title>Redirecting</title>
+    <link rel="canonical" href="{{ $to }}"/>
+    {{- $robots := slice }}
+    {{- if .Params.noindex }}
+    {{- $robots = $robots | append "noindex" }}
+    {{- end }}
+    {{- if .Params.nofollow }}
+    {{- $robots = $robots | append "nofollow" }}
+    {{- end }}
+
+    {{- if ne (len $robots) 0 }}
+    <meta name="robots" content="{{ delimit $robots "," }}">
+    {{- end }}
+    <meta http-equiv="refresh" content="0; url={{ $to }}" />
