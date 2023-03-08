@@ -16,6 +16,27 @@
 			{{- range .Paginator.Pages.Reverse }}		
 				{{- .Render "summary" }}
 			{{- end }}
+		{{/*  order by filename */}}
+		{{- else if .Params.orderByFilename }}
+			{{- range sort .Paginator.Pages "File.BaseFileName" }}
+				{{- .Render "summary" }}
+			{{- end }}
+		{{/*  order by date */}}
+		{{- else if .Params.orderByDate }}
+			{{- range sort .Paginator.Pages "Date" }}
+				{{- .Render "summary" }}
+			{{- end }}
+		{{/*  order by weight */}}
+		{{- else if .Params.orderByWeight }}
+			{{- range sort .Paginator.Pages "Weight" }}
+				{{- .Render "summary" }}
+			{{- end }}
+		{{/*  order by title */}}
+		{{- else if .Params.orderByTitle }}
+			{{- range sort .Paginator.Pages "Title" }}
+				{{- .Render "summary" }}
+			{{- end }}
+		{{/*  order by default */}}
 		{{- else }}
 			{{- range .Paginator.Pages }}
 				{{- .Render "summary" }}
