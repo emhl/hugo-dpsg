@@ -1,11 +1,4 @@
 <article class="list__item post">
-	{{- if .Params.thumbnail }}
-	<figure class="list__thumbnail">
-		<a href="{{ .Permalink }}">
-			<img src="{{ .Params.thumbnail | relURL }}" alt="{{ .Title }}" />
-		</a>
-	</figure>
-	{{- end }}
 	<header class="list__header">
 		<h2 class="list__title post__title">
 			<a href="{{ .RelPermalink }}" rel="bookmark">
@@ -19,6 +12,13 @@
 		<div class="list__meta meta">{{ . }}</div>
 		{{- end }}
 	</header>
+	{{- if .Params.thumbnail }}
+	<figure class="list__thumbnail">
+		<a href="{{ .Permalink }}">
+			<img src="{{ .Params.thumbnail | relURL }}"  width ="12rem" height="12rem" alt="{{ .Title }}" />
+		</a>
+	</figure>
+	{{- end }}
 	{{- if eq .Params.summary "" }}
 	{{- else }}
 	<div class="content list__excerpt post__content clearfix">

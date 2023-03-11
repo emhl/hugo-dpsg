@@ -1121,8 +1121,9 @@ button:not(:-moz-focusring):focus > .menu__btn-title {
 .list__item {
 	padding-bottom: 1.25rem;
 	margin-bottom: 1.25rem;
-	border-bottom: 1px solid #ebebeb;
+	border-bottom: solid 0.3rem {{ $highlightColor }};
 }
+
 
 .list__header {
 	margin-bottom: .625rem;
@@ -1143,8 +1144,7 @@ button:not(:-moz-focusring):focus > .menu__btn-title {
 }
 
 .list__thumbnail img {
-	width: 100%;
-	max-width: 15rem;
+	width: 12rem;
 }
 
 .list__footer-readmore {
@@ -1550,7 +1550,7 @@ textarea {
 
 	.list__thumbnail img {
 		max-width: 100%;
-		width: 19rem;
+		width: 15rem;
 		margin-left: auto;
 		margin-right: auto;
 		display: block;
