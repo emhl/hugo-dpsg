@@ -7,7 +7,7 @@
 		<ul class="menu__list">
 			{{ if .Site.Params.start_button }}
 			<li class="menu__item start__item">
-				<a class="menu__link start__link" href="/">
+				<a class="menu__link start__link" aria-label="start" href="/">
 					{{ partial "svg/dpsg.svg" (dict "class" "start__button") }}
 				</a>
 			</li>
