@@ -1,10 +1,10 @@
 {{- if .Site.Menus.main }}
-<nav class="menu">
+<nav class="menu" id="menu">
 	<div class="container">
-		<button class="menu__btn" aria-haspopup="true" aria-expanded="false" tabindex="0">
-			<span class="menu__btn-title" tabindex="-1">{{ T "menu_label" }}</span>
-		</button>
-		<ul class="menu__list">
+		<ul class="menu__list" id="menu__list">
+			<a class="menu__btn" href="#menu" id="close">
+				<span class="menu__btn-title" tabindex="-1">{{ T "menu_label" }}</span>
+			</a>
 			{{ if .Site.Params.start_button }}
 			<li class="menu__item start__item">
 				<a class="menu__link start__link" aria-label="start" href="/">
@@ -46,6 +46,9 @@
 			{{- end }}
 			{{- end }}
 		</ul>
+		<a class="menu__btn" aria-haspopup="true" aria-expanded="false" tabindex="0" href="#menu__list" id="close">
+			<span class="menu__btn-title" tabindex="-1">{{ T "menu_label" }}</span>
+		</a>
 	</div>
 </nav>
 {{ else -}}

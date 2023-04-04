@@ -22,6 +22,8 @@
 
 	{{ $style := resources.Get "css/style.css" | resources.ExecuteAsTemplate "css/style.css" . | minify | fingerprint -}}
 	<link rel="stylesheet" href="{{ $style.RelPermalink }}" {{ printf "integrity=%q" $style.Data.Integrity | safeHTMLAttr }}>
+	{{ $menu := resources.Get "css/menu.css" | resources.ExecuteAsTemplate "css/menu.css" . | minify | fingerprint -}}
+	<link rel="stylesheet" href="{{ $menu.RelPermalink }}" {{ printf "integrity=%q" $menu.Data.Integrity | safeHTMLAttr }}>
 	{{- range .Site.Params.customCSS }}
 		<link rel="stylesheet" href="{{ . | relURL }}">
 	{{- end }}
@@ -54,8 +56,6 @@
 		{{ partial "sidebar.html" . }}
 	</div>
 	{{ partial "footer" . }}
-	{{ $menu := resources.Get "js/menu.js" | minify | fingerprint -}}
-	<script async defer src="{{ $menu.Permalink }}" {{ printf "integrity=%q" $menu.Data.Integrity | safeHTMLAttr }}></script>
 	{{ range .Site.Params.customJS -}}
 		<script src="{{ . | relURL }}"></script>
 	{{- end }}

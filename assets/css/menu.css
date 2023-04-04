@@ -1,0 +1,297 @@
+{{- $highlightColor := .Site.Params.style.vars.highlightColor | default (.Site.Params.highlightColor | default "#003056") -}}
+/* {{- $accentColor := .Site.Params.style.vars.accentColor | default (.Site.Params.accentColor | default "#810a1a") -}} */
+
+
+/* Main menu */
+.menu {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    z-index: 1;
+      background: {{ $highlightColor }};
+      line-height: 1.5;
+      padding: 0;
+  }
+  
+  .no-js .menu__btn {
+      display: none;
+  }
+  
+  .menu__btn {
+      display: block;
+      width: 100%;
+      padding: 0;
+      font: inherit;
+      color: #fff;
+      background: {{ $highlightColor }};
+      border: 0;
+      outline: 0;
+  }
+  
+  .menu__btn:hover {
+    color: #fff;
+  }
+
+  .menu__btn-title {
+      position: relative;
+      display: block;
+      padding: .625rem .9rem;
+      font-weight: 700;
+      text-align: right;
+      text-transform: uppercase;
+      cursor: pointer;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      -o-user-select: none;
+      user-select: none;
+  }
+  
+  :focus > .menu__btn-title {
+      box-shadow: inset 0 0 .06rem .2rem {{ $highlightColor }};
+  }
+  
+  button:not(:-moz-focusring):focus > .menu__btn-title {
+      box-shadow: none;
+  }
+  
+  .menu__btn:focus,
+  .menu__btn-title:focus {
+      outline: 0;
+  }
+  
+  .menu__list {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    visibility: hidden;
+    -webkit-transform: scaleY(0);
+    transform: scaleY(0);
+    -webkit-transform-origin: top left;
+    transform-origin: top left
+  }
+
+  .menu__list:target {
+    background: {{ $highlightColor }};
+    visibility: visible;
+    border-top: 1px solid rgba(255, 255, 255, .1);
+    border-bottom: 1px solid rgba(255, 255, 255, .1);
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1);
+    transition: transform .2s ease, -webkit-transform .2s ease;
+  }
+  
+  .menu__item {
+      padding: 0 .9rem 0 2rem;
+  }
+  
+  .menu__item:hover {
+      background: {{ $highlightColor }};
+  }
+  
+  .menu__item:first-child {
+      border: 0;
+  }
+  
+  .menu__link {
+      display: block;
+      padding: .6rem 0;
+      font-family: 'Merriweather', Georgia, serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #fff;
+      position: relative;
+  }
+  
+  .menu__link:hover {
+      color: #fff;
+  }
+  
+  /* arrow left of element*/
+  .menu__link::after {
+      content: "";
+      width: 0;
+      height: 0;
+      visibility: hidden;
+      opacity: 0;
+      transition: visibility 0s, opacity .2s linear;
+      border: .4rem solid transparent;
+      border-left-color: #ffffff;
+      position: absolute;
+      top: 1em;
+      left: -0.9rem;
+  }
+  
+  .menu__item:hover .menu__link::after {
+      visibility: visible;
+      opacity: 1;
+  }
+
+  
+  @media screen and (min-width: 767px) {
+  
+      .menu {
+          padding: 0 1.4rem;
+      }
+  
+      /* move left arrow to bottom */
+      .menu__link::after {
+          border-left-color: {{ $highlightColor }};
+          border-bottom-color: #ffffff;
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          top: inherit;
+          margin-left: -.4rem;
+      }
+  
+      .menu__item {
+          padding: 0 .8rem;
+      }
+  
+      .menu__item--active .menu__link::after,
+      .menu__item:hover .menu__link::after {
+          visibility: visible;
+          opacity: 1;
+      }
+  
+      .menu__item:first-child {
+          padding-left: 0;
+      }
+  
+      .menu__btn {
+          display: none;
+      }
+  
+      .menu__list,
+      .js .menu__list {
+          position: relative;
+          display: -webkit-flex;
+          display: flex;
+          -webkit-flex-wrap: wrap;
+          flex-wrap: wrap;
+          visibility: visible;
+          border: 0;
+          -webkit-transform: none;
+          transform: none;
+      }
+  
+  }
+  
+  @media screen and (min-width: 901px) {
+      .menu {
+          padding: 0;
+      }
+  }
+  
+  /* Submenu */
+   
+  .submenu__list {
+      position: relative;
+      display: {{ if .Site.Params.expanded_menu }} block {{ else }} none {{ end }};
+      list-style: none;
+      top: 0;
+      background: transparent;
+      box-shadow: 0 0 0;
+      padding: 0 0 1rem 1rem;
+  }
+  
+  {{ if not .Site.Params.expanded_menu }}
+  .menu__item:hover .submenu__list {
+      display: block;
+  }
+  {{ end }}
+  
+  .submenu__text {
+      font-family: 'Merriweather', Georgia, serif;
+      font-size: 1rem;
+      font-weight: 700;
+      display: flex;
+      {{ if not .Site.Params.expanded_menu }}opacity: 0; {{ end }}
+  }
+  
+  {{ if not .Site.Params.expanded_menu }}
+  .menu__item:hover .submenu__text {
+      opacity: 1;
+  }
+  {{ end }}
+  
+  .submenu__link {
+      color: #fff;
+  }
+  
+  .submenu__link:hover {
+      color: #fff;
+  }
+  
+  
+  @media screen and (min-width: 767px) {
+      .submenu__list {
+          top: 100%;
+          position: absolute;
+          display: none;
+          background: white;
+          padding: 0.5rem;
+          box-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.15);
+  
+      }
+  
+      {{ if .Site.Params.expanded_menu }}
+      .menu__item:hover .submenu__list {
+          display: block;
+      }
+      {{ end }}
+      
+      .submenu__item:hover {
+          background: {{ $highlightColor }};
+      }
+      
+      
+      .submenu__text {
+          padding: 0.2rem 0.8rem;
+      }
+      
+      
+      .submenu__link {
+          color: {{ $highlightColor}};
+      }
+      
+  }
+  
+  /* Start Button */
+  .start__link{
+      top: -2.6rem;
+  }
+  
+  .start__item{
+      position: absolute;
+  }
+  
+  .start__button{
+      fill: #fff;
+      height: 100%;
+      width: 1.6rem;
+      display: flex;
+      position: absolute;
+  }
+  
+  .menu__item:hover .start__link::after {
+      visibility: hidden;
+      opacity: 0;
+  }
+  
+  @media screen and (min-width: 767px) {
+  
+      .start__link{
+          top: 0;
+      }
+  
+      .start__item{
+          position: relative;
+      }
+  
+      .start__button{
+          position: relative;
+      }
+  
+  }
