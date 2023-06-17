@@ -1,10 +1,16 @@
+/* color */
+.menu {
+    --menu-color: white;
+    --menu-background-color: {{- .Site.Params.style.vars.highlightColor | default (.Site.Params.highlightColor | default "#003056") -}};
+}
+
 /* Main menu */
   .menu {
     position: sticky;
     position: -webkit-sticky;
     top: 0;
     z-index: 1;
-      background: var(--highlight-color);
+      background: var(--menu-background-color);
       line-height: 1.5;
       padding: 0;
   }
@@ -25,14 +31,14 @@
       width: 100%;
       padding: 0;
       font: inherit;
-      color: var(--inverted-primary-color);
-      background: var(--highlight-color);
+      color: var(--menu-color);
+      background: var(--menu-background-color);
       border: 0;
       outline: 0;
   }
   
   .menu__btn:hover {
-    color: var(--inverted-primary-color);
+    color: var(--menu-color);
   }
 
   .menu__btn-title {
@@ -51,7 +57,7 @@
   }
   
   :focus > .menu__btn-title {
-      box-shadow: inset 0 0 .06rem .2rem var(--highlight-color);
+      box-shadow: inset 0 0 .06rem .2rem var(--menu-background-color);
   }
   
   button:not(:-moz-focusring):focus > .menu__btn-title {
@@ -75,7 +81,7 @@
   }
 
   .menu__list:target {
-    background: var(--highlight-color);
+    background: var(--menu-background-color);
     visibility: visible;
     border-top: 1px solid rgba(255, 255, 255, .1);
     border-bottom: 1px solid rgba(255, 255, 255, .1);
@@ -89,7 +95,7 @@
   }
   
   .menu__item:hover {
-      background: var(--highlight-color);
+      background: var(--menu-background-color);
   }
   
   .menu__item:first-child {
@@ -102,12 +108,12 @@
       font-family: 'Merriweather', Georgia, serif;
       font-size: 1.2rem;
       font-weight: 700;
-      color: var(--inverted-primary-color);
+      color: var(--menu-color);
       position: relative;
   }
   
   .menu__link:hover {
-      color: var(--inverted-primary-color);
+      color: var(--menu-color);
   }
   
   /* arrow left of element*/
@@ -119,7 +125,7 @@
       opacity: 0;
       transition: visibility 0s, opacity .2s linear;
       border: .4rem solid transparent;
-      border-left-color: var(--inverted-primary-color);
+      border-left-color: var(--menu-color);
       position: absolute;
       top: 1em;
       left: -0.9rem;
@@ -139,8 +145,8 @@
   
       /* move left arrow to bottom */
       .menu__link::after {
-          border-left-color: var(--highlight-color);
-          border-bottom-color: var(--inverted-primary-color);
+          border-left-color: var(--menu-background-color);
+          border-bottom-color: var(--menu-color);
           position: absolute;
           bottom: 0;
           left: 50%;
@@ -220,11 +226,11 @@
   {{ end }}
   
   .submenu__link {
-      color: var(--inverted-primary-color);
+      color: var(--menu-color);
   }
   
   .submenu__link:hover {
-      color: var(--inverted-primary-color);
+      color: var(--menu-color);
   }
   
   
@@ -246,7 +252,7 @@
       {{ end }}
       
       .submenu__item:hover {
-          background: var(--highlight-color);
+          background: var(--menu-background-color);
       }
       
       
@@ -256,7 +262,7 @@
       
       
       .submenu__link {
-          color: var(--highlight-color);
+          color: var(--menu-background-color);
       }
       
   }
@@ -271,7 +277,7 @@
   }
   
   .start__button{
-      fill: var(--inverted-primary-color);
+      fill: var(--menu-color);
       height: 100%;
       width: 1.6rem;
       display: flex;
