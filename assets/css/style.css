@@ -947,7 +947,7 @@ select {
 
 /* Images / Video */
 img {
-	width: auto\9; /* ie8 */
+	width: 15rem; /* ie8 */
 	max-width: 100%;
 	height: auto;
 	vertical-align: bottom;
@@ -959,6 +959,7 @@ object,
 video {
 	max-width: 100%;
 }
+
 
 /* Table */
 table {
@@ -1201,6 +1202,10 @@ textarea {
 	.footer__copyright {
 		text-align: center;
 	}
+
+	img {
+		width: 100%;
+	}
 }
 
 @media screen and (max-width: 767px) {
@@ -1266,7 +1271,7 @@ textarea {
 	.pager__item--prev {
 		padding-bottom: 1.6rem;
 	}
-
+	
 	.content ul,
 	.content ol {
 		margin: 0 0 1.25rem 1.25rem;
@@ -1303,4 +1308,5 @@ textarea {
 		display: block;
 		font-size: .7rem;
 	}
+
 }
