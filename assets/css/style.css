@@ -1,6 +1,6 @@
 {{- $highlightColor := .Site.Params.style.vars.highlightColor | default (.Site.Params.highlightColor | default "#003056") -}}
 {{- $accentColor := .Site.Params.style.vars.accentColor | default (.Site.Params.accentColor | default "#810a1a") -}}
-{{- $darkHighlightColor := .Site.Params.style.vars.darkHighlightColor | default (.Site.Params.darkHighlightColor | default "#264467") -}}
+{{- $darkHighlightColor := .Site.Params.style.vars.darkHighlightColor | default (.Site.Params.darkHighlightColor | default "#4885C1") -}}
 
 
 {{- $fontSans := `"Open Sans", Helvetica, Arial, sans-serif` -}}
@@ -193,14 +193,14 @@ body {
 	body{
 		--primary-color: #c7c7c7;
 		--background-color: #181818;
-		--secondary-color: #a4a4a4;
+		--secondary-color: #000000;
 		--secondary-background-color: #3b3b3b;		
 		
 		--toc-color: #a4afb8;
 		--toc-background-color: #000;
 		
 		--inverted-primary-color: #000;
-		--inverted-background-color: #545454;
+		--inverted-background-color: #969696;
 		
 		--thin-border-color: #313131;
 		--pre-color: #fff;
