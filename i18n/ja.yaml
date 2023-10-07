@@ -64,8 +64,8 @@
 # Footer
 - id: footer_credits
   translation:
-    "このサイトは <a href=\"https://gohugo.io/\" rel=\"nofollow noopener\" target=\"_blank\">Hugo</a> と \
-    <a href=\"https://github.com/pfadfinder-konstanz/hugo-dpsg/\" rel=\"nofollow noopener\" target=\"_blank\">DPSG</a> \
+    "このサイトは <b><a href=\"https://gohugo.io/\" rel=\"nofollow noopener\" target=\"_blank\">Hugo</a></b> と \
+    <b><a href=\"https://github.com/pfadfinder-konstanz/hugo-dpsg/\" rel=\"nofollow noopener\" target=\"_blank\">DPSG</a></b> \
     テーマで生成されています。"
 
 # 404

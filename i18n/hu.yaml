@@ -64,8 +64,8 @@
 # Footer
 - id: footer_credits
   translation:
-    "Létrehozva <a href=\"https://gohugo.io/\" rel=\"nofollow noopener\" target=\"_blank\">Hugo</a> és \
-    <a href=\"https://github.com/pfadfinder-konstanz/hugo-dpsg/\" rel=\"nofollow noopener\" target=\"_blank\">DPSG</a> témával."
+    "Létrehozva <b><a href=\"https://gohugo.io/\" rel=\"nofollow noopener\" target=\"_blank\">Hugo</a></b> és \
+    <b><a href=\"https://github.com/pfadfinder-konstanz/hugo-dpsg/\" rel=\"nofollow noopener\" target=\"_blank\">DPSG</a></b> témával."
 
 # 404
 - id: 404_title

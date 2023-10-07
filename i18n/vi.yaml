@@ -64,8 +64,8 @@
 # Footer
 - id: footer_credits
   translation:
-    "Được tạo từ <a href=\"https://gohugo.io/\" rel=\"nofollow noopener\" target=\"_blank\">Hugo</a> sử dụng với \
-    <a href=\"https://github.com/pfadfinder-konstanz/hugo-dpsg/\" rel=\"nofollow noopener\" target=\"_blank\">DPSG</a>."
+    "Được tạo từ <b><a href=\"https://gohugo.io/\" rel=\"nofollow noopener\" target=\"_blank\">Hugo</a></b> sử dụng với \
+    <b><a href=\"https://github.com/pfadfinder-konstanz/hugo-dpsg/\" rel=\"nofollow noopener\" target=\"_blank\">DPSG</a></b>."
 
 # 404
 - id: 404_title
