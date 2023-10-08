@@ -629,7 +629,7 @@ select {
 
 .meta,
 .meta a {
-	color: var(--secondary-color);
+	color: var(--primary-color);
 }
 
 .meta a:hover {
@@ -648,7 +648,7 @@ select {
 .meta__icon {
 	margin-right: .3rem;
 	vertical-align: middle;
-	fill: var(--meta-icon-color);
+	fill: var(--primary-color);
 }
 
 .meta__text {
