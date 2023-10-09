@@ -7,9 +7,9 @@ featured by the DPSG German scout association. It's forked from the
 [Mainroad](https://github.com/Vimux/Mainroad) Hugo theme.
 
 The reference implementation is visible on the [website of DPSG Stamm Bruder
-Klaus Konstanz](https://pfadfinder-konstanz.de).
+Klaus Konstanz](https://pfadfinder-konstanz.de) and the [website of DPSG Bezirk Bodensee](https://dpsg-bodensee.de).
 
-![screenshot](https://github.com/pfadfinder-konstanz/hugo-dpsg/blob/master/images/screenshot.png)
+![screenshot](images/screenshot.png)
 
 **Features:**
 
@@ -36,17 +36,48 @@ Other browsers (like Opera on Blink engine) are also supported, but not tested.
 [created a new site](https://gohugo.io/getting-started/quick-start/#step-2-create-a-new-site).
 After that, you ready to install **DPSG**.*
 
+### using go modules
+
+if you don't want to modify the theme, you can use go modules to add the theme to your site.
+intialize with `hugo mod init <your domain>`
+
+```
+hugo mod init github.com/user/repo
+```
+
+then add the theme to your site
+
+```
+hugo mod get github.com/emhl/hugo-dpsg
+```
+
+add this to your config.toml
+
+```
+[module]
+[[module.imports]]
+    path = 'github.com/emhl/hugo-dpsg'
+```
+
+if you want to update the theme, run
+
+```
+hugo mod get -u github.com/emhl/hugo-dpsg
+```
+
+### using git
+
 In your Hugo site `themes` directory, run:
 
 ```
-git clone https://github.com/pfadfinder-konstanz/hugo-dpsg
+git clone https://github.com/emhl/hugo-dpsg
 ```
 
 Or, if you don't plan to make any significant changes, but want to track and
 update the theme, you can add it as a git submodule via the following command:
 
 ```
-git submodule add https://github.com/pfadfinder-konstanz/hugo-dpsg
+git submodule add https://github.com/emhl/hugo-dpsg
 ```
 
 Next, open `config.toml` in the base of the Hugo site and ensure the theme
@@ -299,10 +330,10 @@ file with a special class attribute `{{ with .class }}{{ . }} {{ end }}` and
 ## Contributing
 
 Have you found a bug or got an idea for a new feature? Feel free to use the
-[issue tracker](https://github.com/pfadfinder-konstanz/hugo-dpsg/issues) to let
+[issue tracker](https://github.com/emhl/hugo-dpsg/issues) to let
 me know. Or make directly a [pull
-request](https://github.com/pfadfinder-konstanz/hugo-dpsg/pulls).
+request](https://github.com/emhl/hugo-dpsg/pulls).
 
 ## License
 
-This theme is released under the [GPLv2 license](https://github.com/pfadfinder-konstanz/hugo-dpsg/blob/master/LICENSE.md) (GPL-2.0-only).
+This theme is released under the [GPLv2 license](LICENSE.md) (GPL-2.0-only).
