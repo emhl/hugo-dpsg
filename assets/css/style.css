@@ -914,6 +914,7 @@ select {
 /* Pagination */
 .pagination {
 	margin-top: 1.25rem;
+	text-align: center;
 }
 
 .pagination__item {
