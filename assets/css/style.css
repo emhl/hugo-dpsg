@@ -1016,12 +1016,12 @@ input {
 	transition: all .25s ease-in-out;
 }
 
-input[type=text],
+/* input[type=text],
 input[type=email],
 input[type=tel],
 input[type=url] {
 	width: 60%;
-}
+} */
 
 input[type=text]:hover,
 input[type=email]:hover,
