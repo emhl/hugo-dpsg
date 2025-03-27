@@ -1168,9 +1168,9 @@ textarea {
 .footer {
 	padding: .6rem 1.6rem;
 	font-size: .75rem;
-	color: var(--secondary-color);
-	background: var(--inverted-background-color);
-	border-top: .2rem solid var(--accent-color);
+	color: var(--inverted-primary-color);
+	background: var(--highlight-color);
+	/* border-top: .2rem solid var(--accent-color); */
 	margin-top: auto;
 }
 
