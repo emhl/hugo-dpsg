@@ -7,7 +7,7 @@
 	{{- if .Params.noindex }}<meta name="robots" content="noindex">{{- end }}
 	<title>{{ block "title" . }}{{ if not .IsHome }}{{ .Title }} - {{ end }}{{ .Site.Title }}{{ end }}</title>
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
-	<meta name="description" content="{{ if .IsHome }}{{ .Site.Params.description }}{{ else }}{{ .Params.Description }}{{ end }}">
+	<meta name="description" content="{{ if .IsHome }}{{ .Site.Params.description }}{{ else }}{{ or .Description .Summary | plainify | htmlUnescape }}{{ end }}">
 	{{- if .Site.Params.opengraph }}
 		{{ if and (not .Params.images) (or .Params.thumbnail .Site.Params.thumbnail) }}<meta property="og:image" content="{{ or .Params.thumbnail .Site.Params.thumbnail | absURL }}" />{{ end }}
 		{{ template "_internal/opengraph.html" . }}
