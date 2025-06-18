@@ -25,6 +25,9 @@
 
 	{{ $style := resources.Get "css/style.css" | resources.ExecuteAsTemplate "css/style.css" . | minify | fingerprint -}}
 	<link rel="stylesheet" href="{{ $style.RelPermalink }}" {{ printf "integrity=%q" $style.Data.Integrity | safeHTMLAttr }}>
+
+	<link rel="preload" fetchpriority="high" as="image" href="{{ .Site.Params.logo.header -}}" type="image/webp">
+
 	{{ $menu := resources.Get "css/menu.css" | resources.ExecuteAsTemplate "css/menu.css" . | minify | fingerprint -}}
 	<link rel="stylesheet" href="{{ $menu.RelPermalink }}" {{ printf "integrity=%q" $menu.Data.Integrity | safeHTMLAttr }}>
 	{{- range .Site.Params.customCSS }}
