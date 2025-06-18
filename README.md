@@ -104,7 +104,7 @@ theme = "hugo-dpsg"
 [Author] # Used in authorbox
   name = "Scout Master"
   bio = "The Scout Master is the leader of this local scout group"
-  avatar = "img/avatar.png"
+  avatar = "img/avatar.webp"
 
 [Params]
   description = "Welcome to our scout group!" # Site description. Used in meta description
@@ -137,9 +137,9 @@ theme = "hugo-dpsg"
   accentColor = "#003056" # Override accent color
 
 [Params.logo]
-  image = "img/placeholder.png" # Logo image. Path relative to "static"
+  image = "img/placeholder.webp" # Logo image. Path relative to "static"
   image_alt = "Logo image" # alt text for logo image, be screen reader friendly!
-  header = "img/header.jpg" # Header image. Path relative to "static"
+  header = "img/header.webp" # Header image. Path relative to "static"
   title = "DPSG local group" # Logo title, otherwise will use site title
   subtitle = "Welcome to our group site" # Logo subtitle
 
