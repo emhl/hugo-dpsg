@@ -1,7 +1,7 @@
 <article class="list__item post">
 	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="{{ .RelPermalink }}" rel="bookmark">
+		<h2 class="list__title post__title" >
+			<a href="{{ .RelPermalink }}" rel="bookmark" id="{{ .Title | anchorize }}">
 			{{ .Title }}
 			</a>
 		</h2>

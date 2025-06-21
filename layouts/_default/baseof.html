@@ -52,7 +52,7 @@
 <body class="body">
 	{{ partial "header" . }}
 	<div class="container wrapper flex">
-		<div class="primary">
+		<div class="primary" id="primary">
 		{{ block "main" . }}
 			{{ with .Content }}
 			<div class="content main__content clearfix">

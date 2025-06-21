@@ -8,7 +8,7 @@
 {{ end }}
 
 {{- if $sidebar -}}
-<aside class="sidebar{{ if eq $sidebar "left" }} sidebar--left{{ end }}">
+<aside class="sidebar{{ if eq $sidebar "left" }} sidebar--left{{ end }}" id="sidebar">
 {{- $root := . }}
 {{- with (default .Site.Params.sidebar.widgets .Params.widgets) -}}
 	{{- range $widget := . }}

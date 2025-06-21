@@ -1,8 +1,8 @@
 {{ define "main" }}
 <main class="main" role="main">
-	<article class="post">
+	<article class="post" id="article">
 		<header class="post__header">
-			<h1 class="post__title">{{ .Title }}</h1>
+			<h1 class="post__title" id="{{ .Title | anchorize }}">{{ .Title }}</h1>
 			{{- with .Params.lead }}
 			<p class="post__lead">{{ . }}</p>
 			{{- end }}
@@ -17,7 +17,7 @@
 		</figure>
 		{{- end }}
 		{{- partial "post_toc.html" . -}}
-		<div class="content post__content clearfix">
+		<div class="content post__content clearfix" id="content">
 			{{ .Content }}
 		</div>
 		{{- if .Params.tags }}
