@@ -22,8 +22,7 @@
 
 	<link rel="canonical" href="{{ .Permalink }}">
 
-	<link rel="preload" href="/fonts/open-sans-v18-latin-regular.woff2" crossorigin="anonymous" as="font" type="font/woff2">
-	<link rel="preload" href="/fonts/merriweather-v22-latin-700.woff2" crossorigin="anonymous" as="font" type="font/woff2">
+	<link rel="preload" href="/fonts/arvo-v23-latin-700.woff2" crossorigin="anonymous" as="font" type="font/woff2">
 
 	{{ $style := resources.Get "css/style.css" | resources.ExecuteAsTemplate "css/style.css" . | minify | fingerprint -}}
 	<link rel="stylesheet" href="{{ $style.RelPermalink }}" {{ printf "integrity=%q" $style.Data.Integrity | safeHTMLAttr }}>
