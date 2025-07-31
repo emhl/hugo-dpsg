@@ -6,9 +6,9 @@
 			{{- with .Params.lead }}
 			<p class="post__lead">{{ . }}</p>
 			{{- end }}
-			{{ with partial "post_meta.html" . -}}
+			{{- if not .Params.post_meta_hide }}{{ with partial "post_meta.html" . -}}
 			<div class="post__meta meta">{{ . }}</div>
-			{{- end }}
+			{{- end }}{{- end }}
 		</header>
 		{{- if .Site.Params.belowTitlePartial }}{{ partial .Site.Params.belowTitlePartial . }}{{ end }}
 		{{- if and (.Params.thumbnail) (not .Params.thumbnail_hide_post) }}

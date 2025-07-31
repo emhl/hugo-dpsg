@@ -232,6 +232,7 @@ widgets: # Enable sidebar widgets in given order per page
   - "recent"
   - "taglist"
 sitemap_hide: false # Do not add this page to the sitemap
+post_meta_hide: false # Do not show author, date, category or translation info below the title
 scripts_head: # optional: include some literal <head> matter, e.g. for page-specific JS imports; safeHTML-filtered
   - "<!-- -->"
 scripts_body: # optional: include some literal html just before <body/> tag, e.g. JS initialization; safeHTML-filtered
