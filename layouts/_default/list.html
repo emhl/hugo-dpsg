@@ -12,35 +12,29 @@
 	</div>
 	{{- end }}
 	{{- if .Params.pageFeed | default true -}}
-		{{- if .Params.reverseOrder }}
-			{{- range .Paginator.Pages.Reverse }}		
-				{{- .Render "summary" }}
-			{{- end }}
+		{{- $pages := .Pages }}
+		{{- $pagerSize :=  .Params.pagerSize | default .Site.Params.pagerSize | default 10 }}
 		{{/*  order by filename */}}
-		{{- else if .Params.orderByFilename }}
-			{{- range sort .Paginator.Pages "File.BaseFileName" }}
-				{{- .Render "summary" }}
-			{{- end }}
+		{{- if .Params.orderByFilename }}
+			{{- $pages = ( sort $pages "File.BaseFileName" ) }}
 		{{/*  order by date */}}
 		{{- else if .Params.orderByDate }}
-			{{- range sort .Paginator.Pages "Date" }}
-				{{- .Render "summary" }}
-			{{- end }}
+			{{- $pages = sort $pages "Date" "desc" }}
 		{{/*  order by weight */}}
 		{{- else if .Params.orderByWeight }}
-			{{- range sort .Paginator.Pages "Weight" }}
-				{{- .Render "summary" }}
-			{{- end }}
+			{{- $pages = sort $pages "Weight" "desc" }}
 		{{/*  order by title */}}
 		{{- else if .Params.orderByTitle }}
-			{{- range sort .Paginator.Pages "Title" }}
-				{{- .Render "summary" }}
-			{{- end }}
-		{{/*  order by default */}}
-		{{- else }}
-			{{- range .Paginator.Pages }}
-				{{- .Render "summary" }}
-			{{- end }}
+			{{- $pages = sort $pages "Title" "asc" }}
+		{{- end }}
+
+		{{/*  reverse order */}}
+		{{- if .Params.reverseOrder }}
+			{{- $pages = $pages.Reverse }}
+		{{- end }}
+		{{/*  call paginate */}}
+		{{- range ( .Paginate $pages $pagerSize ).Pages }}
+			{{- .Render "summary" }}
 		{{- end }}
 	{{- end }}
 </main>
