@@ -578,7 +578,7 @@ select {
 }
 
 .post__thumbnail img {
-	width: 100%;
+	max-height: 75vh;
 }
 
 .content a,
@@ -871,10 +871,13 @@ select {
 
 /* Images / Video */
 img {
-	width: 15rem; /* ie8 */
 	max-width: 100%;
 	height: auto;
 	vertical-align: bottom;
+}
+
+.content img {
+	width: 24rem;
 }
 
 iframe,
@@ -1128,7 +1131,7 @@ textarea {
 		text-align: center;
 	}
 
-	img {
+	.content img {
 		width: 100%;
 	}
 }
