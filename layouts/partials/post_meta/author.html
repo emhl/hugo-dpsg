@@ -1,6 +1,19 @@
-{{- if .Site.Author.name -}}
+{{- $author := .Site.Params.author -}}
+{{- if not $author -}}
+  {{- /* Fallback to legacy Author field using index to avoid crash if field is missing */ -}}
+  {{- $author = index .Site "Author" -}}
+{{- end -}}
+
+{{- $name := "" -}}
+{{- if reflect.IsMap $author -}}
+  {{- $name = $author.name -}}
+{{- else -}}
+  {{- $name = $author -}}
+{{- end -}}
+
+{{- if $name -}}
 <div class="meta__item-author meta__item">
 	{{ partial "svg/author.svg" (dict "class" "meta__icon") -}}
-	<span class="meta__text">{{ .Site.Author.name }}</span>
+       <span class="meta__text">{{ $name }}</span>
 </div>
 {{- end -}}
